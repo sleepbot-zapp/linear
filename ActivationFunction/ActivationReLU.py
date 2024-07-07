@@ -6,3 +6,7 @@ class Activation_ReLU:
         self.inputs = inputs
         self.outputs = maximum(0, inputs)
         return self.outputs
+
+    def backward(self, dvalues):
+        self.dinputs = dvalues.copy()
+        self.dinputs[self.inputs <= 0] = 0

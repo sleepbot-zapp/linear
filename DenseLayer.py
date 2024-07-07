@@ -17,5 +17,4 @@ class Layer_Dense:
     def backward(self, dvalues):
         self.dweights = dot(self.inputs.T, dvalues)
         self.dbiases = sum(dvalues, axis=0, keepdims=True)
-        # Gradient on values
         self.dinputs = dot(dvalues, self.weights.T)
